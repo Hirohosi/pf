@@ -21,6 +21,7 @@ interface ProjectCardProps {
   description: string;
   image: string;
   tags: string[];
+  link: string;
 }
 
 function App() {
@@ -95,17 +96,17 @@ function App() {
             <SkillCard
               icon={<Terminal className="w-8 h-8" />}
               title="バックエンド"
-              skills={["Node.js", "Python", "Go", "Java"]}
+              skills={["Python", "Go"]}
             />
             <SkillCard
               icon={<Database className="w-8 h-8" />}
               title="データベース"
-              skills={["PostgreSQL", "MongoDB", "Redis", "Firebase"]}
+              skills={["PostgreSQL", "OracleDB", "DynamoDB", "Firebase"]}
             />
             <SkillCard
               icon={<Globe className="w-8 h-8" />}
               title="その他"
-              skills={["Docker", "AWS", "CI/CD", "Agile"]}
+              skills={["AWS", "Firebase", "Supabase", "CI/CD", "Github"]}
             />
           </div>
         </div>
@@ -156,6 +157,7 @@ function App() {
                 description={project.description}
                 image={project.image}
                 tags={project.tags}
+                link={project.link}
               />
             ))}
           </div>
@@ -234,9 +236,18 @@ function SkillCard({ icon, title, skills }: SkillCardProps) {
   );
 }
 
-function ProjectCard({ title, description, image, tags }: ProjectCardProps) {
+function ProjectCard({
+  title,
+  description,
+  image,
+  tags,
+  link,
+}: ProjectCardProps) {
   return (
-    <div className="bg-gray-900 rounded-xl overflow-hidden transform transition-transform hover:scale-[1.02]">
+    <div
+      className="bg-gray-900 rounded-xl overflow-hidden transform transition-transform hover:scale-[1.02]"
+      onClick={() => window.open(link, "_blank")}
+    >
       <div className="h-48 overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
