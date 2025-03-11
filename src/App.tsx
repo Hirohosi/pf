@@ -9,39 +9,56 @@ import {
   Globe,
 } from "lucide-react";
 
+interface SkillCardProps {
+  icon: React.ReactNode;
+  title: string;
+  skills: string[];
+}
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+}
+
 function App() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  const projects = [
-    {
-      title: "AI チャットボット",
-      description: "自然言語処理を活用したカスタマーサポート向けチャットボット",
-      image:
-        "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80",
-      tags: ["React", "Python", "OpenAI", "NLP"],
-    },
-    {
-      title: "データ分析ダッシュボード",
-      description: "リアルタイムデータ可視化プラットフォーム",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
-      tags: ["Next.js", "D3.js", "PostgreSQL", "React"],
-    },
-    {
-      title: "eコマースプラットフォーム",
-      description: "モダンなオンラインショッピング体験",
-      image:
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80",
-      tags: ["React", "Node.js", "Stripe", "PostgreSQL"],
-    },
-    {
-      title: "SNSアプリ",
-      description: "リアルタイムコミュニケーションプラットフォーム",
-      image:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80",
-      tags: ["React", "Firebase", "WebSocket", "Node.js"],
-    },
-  ];
+  const projects = useMemo(
+    () => [
+      {
+        title: "AI チャットボット",
+        description:
+          "自然言語処理を活用したカスタマーサポート向けチャットボット",
+        image:
+          "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80",
+        tags: ["React", "Python", "OpenAI", "NLP"],
+      },
+      {
+        title: "データ分析ダッシュボード",
+        description: "リアルタイムデータ可視化プラットフォーム",
+        image:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
+        tags: ["Next.js", "D3.js", "PostgreSQL", "React"],
+      },
+      {
+        title: "eコマースプラットフォーム",
+        description: "モダンなオンラインショッピング体験",
+        image:
+          "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80",
+        tags: ["React", "Node.js", "Stripe", "PostgreSQL"],
+      },
+      {
+        title: "SNSアプリ",
+        description: "リアルタイムコミュニケーションプラットフォーム",
+        image:
+          "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80",
+        tags: ["React", "Firebase", "WebSocket", "Node.js"],
+      },
+    ],
+    []
+  );
 
   const allTags = useMemo(() => {
     const tags = new Set<string>();
@@ -231,7 +248,7 @@ function App() {
   );
 }
 
-function SkillCard({ icon, title, skills }) {
+function SkillCard({ icon, title, skills }: SkillCardProps) {
   return (
     <div className="p-6 bg-gray-800 rounded-xl">
       <div className="text-blue-400 mb-4">{icon}</div>
@@ -247,7 +264,7 @@ function SkillCard({ icon, title, skills }) {
   );
 }
 
-function ProjectCard({ title, description, image, tags }) {
+function ProjectCard({ title, description, image, tags }: ProjectCardProps) {
   return (
     <div className="bg-gray-900 rounded-xl overflow-hidden transform transition-transform hover:scale-[1.02]">
       <div className="h-48 overflow-hidden">
