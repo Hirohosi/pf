@@ -33,15 +33,15 @@ export const projects = [
       "Typescript",
     ],
     serviceLink: "https://tech-current.com",
-    githubLink: "https://github.com/hoshihiro/tech-current",
+    githubLink: "https://github.com/HoshinoOrg/TechCurrent-next",
   },
   {
     title: "釣りのバトルアプリ",
     description: "釣りの得点性のバトルができるアプリ",
     image:
       "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80",
-    tags: ["Webアプリ", "React", "Firebase", "WebSocket", "Node.js"],
+    tags: ["Webアプリ", "React", "Firebase", "AWS", "Typescript"],
     serviceLink: "",
-    githubLink: "",
+    githubLink: "https://github.com/HoshinoOrg/fishing-battle-portfolio",
   },
 ];

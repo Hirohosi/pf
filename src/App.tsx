@@ -248,18 +248,22 @@ function ProjectCard({
           </div>
         </div>
         <div className="flex gap-2 justify-center">
-          <button
-            onClick={() => window.open(serviceLink, "_blank")}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-          >
-            サービスを見る
-          </button>
-          <button
-            onClick={() => window.open(githubLink, "_blank")}
-            className="px-4 py-2 bg-gray-700 text-white rounded-lg"
-          >
-            GitHubを見る
-          </button>
+          {serviceLink && (
+            <button
+              onClick={() => window.open(serviceLink, "_blank")}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+            >
+              サービスを見る
+            </button>
+          )}
+          {githubLink && (
+            <button
+              onClick={() => window.open(githubLink, "_blank")}
+              className="px-4 py-2 bg-gray-700 text-white rounded-lg"
+            >
+              GitHubを見る
+            </button>
+          )}
         </div>
       </div>
     </div>
