@@ -21,7 +21,8 @@ interface ProjectCardProps {
   description: string;
   image: string;
   tags: string[];
-  link: string;
+  serviceLink: string;
+  githubLink: string;
 }
 
 function App() {
@@ -157,7 +158,8 @@ function App() {
                 description={project.description}
                 image={project.image}
                 tags={project.tags}
-                link={project.link}
+                serviceLink={project.serviceLink}
+                githubLink={project.githubLink}
               />
             ))}
           </div>
@@ -176,36 +178,17 @@ function App() {
           <h2 className="text-3xl font-bold text-center text-white mb-12">
             お問い合わせ
           </h2>
-          <div className="max-w-2xl mx-auto">
-            <form className="space-y-6">
-              <div>
-                <input
-                  type="text"
-                  placeholder="お名前"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  placeholder="メールアドレス"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div>
-                <textarea
-                  placeholder="メッセージ"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                送信する
-              </button>
-            </form>
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="text-gray-300 mb-8">
+              お気軽にメールでお問い合わせください。
+            </p>
+            <a
+              href="mailto:h19970216h@gmail.com"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <Mail size={20} />
+              メールでお問い合わせ
+            </a>
           </div>
         </div>
       </section>
@@ -241,28 +224,42 @@ function ProjectCard({
   description,
   image,
   tags,
-  link,
+  serviceLink,
+  githubLink,
 }: ProjectCardProps) {
   return (
-    <div
-      className="bg-gray-900 rounded-xl overflow-hidden transform transition-transform hover:scale-[1.02]"
-      onClick={() => window.open(link, "_blank")}
-    >
+    <div className="bg-gray-900 rounded-xl overflow-hidden transform transition-transform hover:scale-[1.02]">
       <div className="h-48 overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p className="text-gray-400 mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-gray-800 text-blue-400 rounded-full text-sm"
-            >
-              {tag}
-            </span>
-          ))}
+      <div className="p-6 flex flex-col h-[calc(100%-12rem)]">
+        <div className="flex-1">
+          <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+          <p className="text-gray-400 mb-4">{description}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-gray-800 text-blue-400 rounded-full text-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="flex gap-2 justify-center">
+          <button
+            onClick={() => window.open(serviceLink, "_blank")}
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+          >
+            サービスを見る
+          </button>
+          <button
+            onClick={() => window.open(githubLink, "_blank")}
+            className="px-4 py-2 bg-gray-700 text-white rounded-lg"
+          >
+            GitHubを見る
+          </button>
         </div>
       </div>
     </div>
