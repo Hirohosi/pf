@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import {
-  Github,
-  Linkedin,
+  GithubIcon,
+  X,
   Mail,
   Code2,
   Terminal,
@@ -30,12 +30,12 @@ function App() {
     const tags = new Set<string>();
     projects.forEach((project) => project.tags.forEach((tag) => tags.add(tag)));
     return Array.from(tags).sort();
-  }, [projects]);
+  }, []);
 
   const filteredProjects = useMemo(() => {
     if (!selectedTag) return projects;
     return projects.filter((project) => project.tags.includes(selectedTag));
-  }, [selectedTag, projects]);
+  }, [selectedTag]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
@@ -47,29 +47,33 @@ function App() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              エンジニアの<span className="text-blue-400">ポートフォリオ</span>
+              ほしひろの<span className="text-blue-400">ポートフォリオ</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8">
               フルスタックエンジニア | クリエイティブ・プロブレムソルバー
             </p>
             <div className="flex justify-center space-x-4">
               <a
-                href="#"
+                href="https://github.com/hoshihiro"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
               >
-                <Github size={24} />
+                <GithubIcon size={24} />
               </a>
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="#"
+                href="mailto:h19970216h@gmail.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Mail size={24} />
+              </a>
+              <a
+                href="https://twitter.com/hoshihiro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <X size={24} />
               </a>
             </div>
           </div>
