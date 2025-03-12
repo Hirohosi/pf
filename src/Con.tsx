@@ -44,4 +44,12 @@ export const projects = [
     serviceLink: "",
     githubLink: "https://github.com/HoshinoOrg/fishing-battle-portfolio",
   },
+  {
+    title: "Perfect pixel for mobile",
+    description: "モバイルアプリ開発時にデザインデータとの一致度を確認する",
+    image: "asset/ppMobile.png",
+    tags: ["Webアプリ", "React", "AWS", "Typescript"],
+    serviceLink: "https://main.d1pghj46pv8d27.amplifyapp.com",
+    githubLink: "https://github.com/Hirohosi/PerfectPixelForMobile",
+  },
 ];
