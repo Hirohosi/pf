@@ -56,7 +56,7 @@ function App() {
             </p>
             <div className="flex justify-center space-x-4">
               <a
-                href="https://github.com/hoshihiro"
+                href="https://github.com/Hirohosi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
