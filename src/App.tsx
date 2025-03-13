@@ -106,7 +106,7 @@ function App() {
             />
             <SkillCard
               icon={<Globe className="w-8 h-8" />}
-              title="その他"
+              title="インフラ・その他"
               skills={["AWS", "Firebase", "Supabase", "CI/CD", "Github"]}
             />
           </div>
